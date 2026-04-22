@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { DtoSignUp } from './dto/dto.signUp';
-import { AuthRepository } from './auth.repository';
+import { UsersService } from '../users/users.service';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly authrepository: AuthRepository) {}
+  constructor(private readonly userservice: UsersService) {}
   async signUp(dto: DtoSignUp) {
     const mail = dto.mail;
-    const mail_in_db = await this.authrepository.mail_in_db(mail);
-    if (mail_in_db === true) {
-      return '';
+    const user = await this.userservice.getUserByMail(mail);
+    if (user) {
+      return 'есть в базе данных (test)';
     }
-    return this.authrepository.signUp(dto);
+    return 'нет в базе данных (test)';
   }
 }
