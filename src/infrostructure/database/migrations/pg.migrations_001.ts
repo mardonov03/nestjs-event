@@ -15,9 +15,13 @@ export function up(pgm: MigrationBuilder) {
       type: 'varchar(255)',
       notNull: true,
     },
-    date: {
+    createdAt: {
       type: 'timestamp',
       default: pgm.func('current_timestamp'),
+    },
+    verify: {
+      type: 'boolean',
+      default: false,
     },
   });
 }

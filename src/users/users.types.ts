@@ -1,4 +1,4 @@
-import { IsEmail, IsString } from 'class-validator';
+import { IsEmail, IsString, IsTimeZone } from 'class-validator';
 
 export class TypesUser {
   id: number;
@@ -6,4 +6,7 @@ export class TypesUser {
   mail: string;
   @IsString()
   password: string;
+  verify: boolean;
+  @IsTimeZone()
+  createdAt: string;
 }
