@@ -13,7 +13,7 @@ export class AuthService {
       return 'есть в базе данных и верефицирован (test)';
     }
     if (
-      !user ||
+      user &&
       Date.now() - new Date(user.createdAt).getTime() < 2 * 60 * 1000
     ) {
       return 'еще не прошло 2 минуты';
