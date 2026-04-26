@@ -14,10 +14,10 @@ export class AuthService {
     }
     if (
       user &&
-      Date.now() - new Date(user.createdAt).getTime() < 2 * 60 * 1000
+      Date.now() - new Date(user.created_at).getTime() < 2 * 60 * 1000
     ) {
       return 'еще не прошло 2 минуты';
     }
-    return 'туту пройдет регистрация';
+    return await this.userservice.addUser(dto.mail, dto.password);
   }
 }

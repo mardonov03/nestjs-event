@@ -8,5 +8,5 @@ export class TypesUser {
   password: string;
   verify: boolean;
   @IsTimeZone()
-  createdAt: string;
+  created_at: string;
 }

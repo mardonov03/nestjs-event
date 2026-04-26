@@ -8,4 +8,7 @@ export class UsersService {
   async getUserByMail(mail: string): Promise<TypesUser | null> {
     return this.userrepository.getUserByMail(mail);
   }
+  async addUser(mail: string, password: string) {
+    return await this.userrepository.addUser(mail, password);
+  }
 }
